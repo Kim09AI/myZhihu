@@ -2,7 +2,7 @@
 	<div>
 		<transition name="slide">
 			<div class="side-bar-body" v-show="sideBarStatus">
-				<div class="header cfix" :class="{bg222: dayOrNi}">
+				<div :class="['header', 'cfix', {bg222: dayOrNi}]">
 					<div style="font-size: 14px;margin-bottom: 20px;padding-top: 10px;">
 						<span class="avatar"></span>
 						<span style="margin-left: 10px;vertical-align: middle;">请登录</span>
@@ -16,7 +16,7 @@
 						<span style="margin-left: 15px;font-size: 14px;">离线下载</span>
 					</div>
 				</div>
-				<ul class="side-bar-list" :class="{bg32: dayOrNi}">
+				<ul :class="['side-bar-list', {bg32: dayOrNi}]">
 					<li @click="turnThemes()" :class="{active: !activeId}">
 						<i class="iconfont" style="color: #00A2EA;margin-left: 5px;">&#xe617;</i>
 						<span style="color: #00A2EA;">首页</span>

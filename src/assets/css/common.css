@@ -10,11 +10,11 @@
 
 @font-face {
   font-family: 'iconfont';  /* project id 366572 */
-  src: url('//at.alicdn.com/t/font_jflbzr9d0vu6jemi.eot');
-  src: url('//at.alicdn.com/t/font_jflbzr9d0vu6jemi.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_jflbzr9d0vu6jemi.woff') format('woff'),
-  url('//at.alicdn.com/t/font_jflbzr9d0vu6jemi.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_jflbzr9d0vu6jemi.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_o5zjm0d2ipddvx6r.eot');
+  src: url('//at.alicdn.com/t/font_o5zjm0d2ipddvx6r.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_o5zjm0d2ipddvx6r.woff') format('woff'),
+  url('//at.alicdn.com/t/font_o5zjm0d2ipddvx6r.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_o5zjm0d2ipddvx6r.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -45,6 +45,10 @@
 
 .bg32 {
 	background-color: #323232;
+}
+
+.bg555 {
+	background-color: #555;
 }
 
 .bg40 {

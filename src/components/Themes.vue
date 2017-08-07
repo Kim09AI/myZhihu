@@ -1,7 +1,7 @@
 <template>
 	<div v-if="themedes">
 		<div>
-			<div class="zhihu-header cfix" :class="{bg222: dayOrNi}">
+			<div :class="['zhihu-header', 'cfix', {bg222: dayOrNi}]">
 				<div style="float: left;">
 					<i class="iconfont" @click="showSideBar">&#xe60e;</i>
 					<span style="margin-left: 20px;color: #fff;">{{ themedes.name }}</span>
@@ -18,7 +18,7 @@
 			<p class="desc">{{  themedes.description }}</p>
 		</div>
 		
-		<div class="new-container" :class="{bg32: dayOrNi}">
+		<div :class="['new-container', {bg32: dayOrNi}]">
 			<panel-list :list="themedes.stories"></panel-list>
 		</div>
 	</div>

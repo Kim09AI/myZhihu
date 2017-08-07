@@ -20,14 +20,14 @@
 			return {
 				currentIndex: 0,
 		      	currentPos: null,
-		      	movePos: null,
+		      	movePos: null, // 手指滑动的距离
 		      	isTouch: false,
 		      	timeId: '',
 		      	startX: 0
 			}
 		},
 		methods: {
-			carousel (auto = true) {
+			carousel (auto = true) { // 图片切换
 				if (auto) {
 					if (this.currentIndex == 4) {
 						this.currentIndex = 0;

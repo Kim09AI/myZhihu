@@ -1,5 +1,5 @@
 <template>
-	<div class="new-container" :class="{bg32: dayOrNi}">
+	<div :class="['new-container', {bg32: dayOrNi}]">
 		<p class="title">{{ newList.date | format(index)}}</p>
 		<panel-list :list="newList.stories"></panel-list>
 	</div>

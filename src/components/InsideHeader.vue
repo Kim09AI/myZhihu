@@ -1,18 +1,18 @@
 <template>
 	<div>
-		<div class="zhihu-header cfix" :class="{bg222: dayOrNi}">
+		<div :class="['zhihu-header', 'cfix', {bg222: dayOrNi}]">
 			<div style="float: left;">
 				<i class="iconfont" @click="goBack">&#xe6c9;</i>
 			</div>
 			<div class="icon-list" style="float: right;">
 				<i class="iconfont">&#xe64f;</i>
 				<i class="iconfont">&#xe601;</i>
-				<span>
+				<span @click="goComments(comments)">
 					<i class="iconfont">&#xe62e;</i>
 					<span>{{ comments }}</span>
 				</span>
 				<span @click="fabulous">
-					<i class="iconfont" :class="{active: hasFabulous}">&#xe7d3;</i>
+					<i :class="['iconfont', {active: hasFabulous}]">&#xe7d3;</i>
 					<span>{{ popularityNum }}</span>
 				</span>
 			</div>
@@ -52,6 +52,9 @@
 					}, 1500);
 				}
 				this.hasFabulous = !this.hasFabulous;
+			},
+			goComments (comments) {
+				this.$router.push({path: '/content/' + this.$route.params.id + '/comments', query: {commentsNum: comments}});
 			}
 		},
 		computed: {

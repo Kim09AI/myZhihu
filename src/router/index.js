@@ -4,6 +4,7 @@ import Index from '@/components/Index'
 import SideBar from '@/components/SideBar'
 import Content from '@/components/Content'
 import Themes from '@/components/Themes'
+import Comments from '@/components/Comments'
 
 Vue.use(Router)
 
@@ -21,6 +22,11 @@ export default new Router({
     	path: '/content/:id',
     	name: 'content',
     	component: Content
+    },
+    {
+    			path: '/content/:id/comments',
+    			name: 'comments',
+    			component: Comments
     },
     {
     	path: '/themes/:id',

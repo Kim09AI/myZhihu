@@ -6,7 +6,6 @@
 		
 		<link rel="stylesheet" type="text/css" :href="content.css[0]"/>
 		<div v-html="content.body" :class="{coverWrapBg: dayOrNi}"></div>
-		
 	</div>
 </template>
 

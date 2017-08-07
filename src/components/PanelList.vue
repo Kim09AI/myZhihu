@@ -1,6 +1,6 @@
 <template>
 	<ul>
-		<li class="panel" :class="{bg40: dayOrNi}" v-for="item in list" @click="detailedContent(item.id)">
+		<li :class="['panel', {bg40: dayOrNi}]" v-for="item in list" @click="detailedContent(item.id)">
 			<p class="panel-text">{{ item.title }}</p>
 			<img v-if="!!item.images" :src="item.images && item.images[0]" alt="" class="panel-icon" />
 		</li>
@@ -36,7 +36,6 @@
 		padding: 10px 15px;
 		margin-bottom: 10px;
 		display: flex;
-		display: -webkit-flex;
 	}
 	
 	.panel:last-child {
@@ -46,7 +45,6 @@
 	.panel-text {
 		font-size: 16px;
 		flex: 1;
-		-webkit-flex: 1;
 	}
 	
 	.panel-icon {

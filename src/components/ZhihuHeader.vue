@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="zhihu-header cfix" :class="{bg222: dayOrNi}">
+		<div :class="['zhihu-header', 'cfix', {bg222: dayOrNi}]">
 			<div style="float: left;">
 				<i class="iconfont" @click="showSideBar">&#xe60e;</i>
 				<span style="margin-left: 20px;color: #fff;">{{ title }}</span>
