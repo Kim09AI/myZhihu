@@ -25,7 +25,7 @@
 		data () {
 			return {
 				sideBarState: false,
-				setting: false,
+				setting: false, //设置项
 				dayOrNiText: '夜间模式'
 			}
 		},

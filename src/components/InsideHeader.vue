@@ -40,7 +40,7 @@
 			goBack () {
 				this.$router.go(-1);
 			},
-			fabulous () {
+			fabulous () { // 点赞
 				if (this.hasFabulous) {
 					this.popularityNum--;
 				} else {

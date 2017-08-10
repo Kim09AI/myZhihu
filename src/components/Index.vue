@@ -55,6 +55,7 @@
 	  		const docH = document.body.offsetHeight;
 	  		const scrollH = document.body.scrollTop;
 	  		
+	  		// 滚动加载
 	  		if (winH + scrollH == docH) {
 	  			that.getStories();
 	  		}

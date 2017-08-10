@@ -45,7 +45,7 @@
 			}
 		},
 		methods: {
-			turnThemes (id) {
+			turnThemes (id) { // 侧边栏展开收起
 				this.closeSideBar();
 				if (!id) {
 					this.$router.push('/');

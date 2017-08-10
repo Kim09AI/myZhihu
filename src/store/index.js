@@ -5,8 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
 	state: {
-		switchSlideBar: false,
-		pattern: false
+		switchSlideBar: false, //侧边栏的状态
+		pattern: false // 日夜间模式
 	},
 	mutations: {
 		switchSideBar (state) {

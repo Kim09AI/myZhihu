@@ -61,6 +61,7 @@
 		beforeRouteUpdate (to, from, next) {
 			next();
 			this.getThemes(this);
+			// 路由跳转后设置滚动条位置
 			document.body.scrollTop = 0;
 		}
 	}

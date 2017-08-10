@@ -1,6 +1,6 @@
 <template>
 	<div v-if="carouselList" class="carousel-box" @touchstart="carouselSlide($event)" @touchmove="carouselSlide($event)" @touchend="carouselSlide($event)">
-		<ul class="carousel cfix" :style="[currentPos, movePos, {width: carouselList.length * 100 + 'vw'}]">
+		<ul :class="['carousel cfix',  {slideTime: !isTouch}]" :style="[currentPos, {width: carouselList.length * 100 + 'vw'}]">
 			<li v-for="item in carouselList" @click="detailedContent(item.id)">
 				<img :src="item.image" alt="" />
 				<p>{{ item.title }}</p>
@@ -20,7 +20,7 @@
 			return {
 				currentIndex: 0,
 		      	currentPos: null,
-		      	movePos: null, // 手指滑动的距离
+		      	winW: window.innerWidth, // 窗口的宽度
 		      	isTouch: false,
 		      	timeId: '',
 		      	startX: 0
@@ -43,25 +43,28 @@
 		            case 'touchstart':
 		            	clearInterval(this.timeId);
 		                this.startX = event.touches[0].clientX;
+		                that.isTouch = true;
 		                break;
 		            case 'touchmove':
 		                event.preventDefault();
-		                const moveX = event.touches[0].clientX - this.startX;
+		                const moveX = (event.touches[0].clientX - this.startX) / that.winW * 100;
+		                // 往右滑第一张或往左滑最后一张
 		                if ((this.currentIndex == 0 && moveX > 0) || (this.currentIndex == (this.carouselList.length - 1) && moveX < 0)) return ;
-		                this.movePos = {'margin-left': moveX + 'px'};
+		                // 手指滑动时图片跟随滑动
+		                this.currentPos = {transform: 'translateX(-' + (this.currentIndex * 100 - moveX) + 'vw)'};
 		                break;
 		            case 'touchend':
-		                if (event.changedTouches[0].clientX - this.startX >= 50) {
+		            	that.isTouch = false;
+		                if (event.changedTouches[0].clientX - this.startX >= 100) {
 		                	if (this.currentIndex == 0) return ;
 		                	this.currentIndex--;
-		                } else if (event.changedTouches[0].clientX - this.startX <= -50) {
+		                } else if (event.changedTouches[0].clientX - this.startX <= -100) {
 		                	if (this.currentIndex == this.carouselList.length - 1) return ;
 		                	this.currentIndex++;
 		                }
 		                this.carousel(false);
 		                
-		                this.movePos = null;
-		                
+		                // 重新开启自动轮播
 		                this.timeId = setInterval(function() {
 					  		that.carousel();
 					  	}, 3000);
@@ -74,6 +77,7 @@
 		},
 		created () {
 			const that = this;
+			// 自动轮播
 			this.timeId = setInterval(function() {
 		  		that.carousel();
 		  	}, 3000);
@@ -93,6 +97,9 @@
 	.carousel {
 		width: 100%;
 		height: 100%;
+	}
+	
+	.slideTime {
 		transition: all 0.6s;
 	}
 	

@@ -34,8 +34,8 @@
 			return {
 				longComments: null,
 				shortComments: null,
-				comnentsNum: this.$route.query.commentsNum || 0,
-				show: false
+				comnentsNum: this.$route.query.commentsNum || 0, // 评论总数
+				show: false //短评的显示与隐藏
 			}
 		},
 		methods: {
